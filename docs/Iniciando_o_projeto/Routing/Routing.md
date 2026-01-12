@@ -11,3 +11,4 @@ simples assim.
 4. [Reguex Paths](Reguex_Paths.md)
 5. [Named URLs](Named_URLs.md)
 6. [Reverse URL](Reverse_URL.md)
+7. [Ruouting Middleware](Ruouting_Middleware.md)
