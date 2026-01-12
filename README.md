@@ -9,3 +9,4 @@
 # Seu primeiro Projeto
 1. [Ambientes virtuais](docs/Seu_primeiro_projeto/AMBIENTES_VIRTUAIS.md)
 2. [Instalando o django](docs/Seu_primeiro_projeto/INSTALANDO_O_DJANGO.md)
+3. [Projetos e Apps](docs/Seu_primeiro_projeto/PROJETOS_E_APPS.md)
