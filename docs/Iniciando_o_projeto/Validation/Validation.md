@@ -6,3 +6,6 @@
 6. [Pagination](Pagination.md)
 7. [Message Framework](Message_Framework.md)
 8. [Django Shell](Django_Shell.md)
+9. [Django Admin](Django_Admin/Django_Admin.md)
+10. [Middleware](Middleware/Middleware.md)
+11. [Authentication](Authentication/Authentication.md)
