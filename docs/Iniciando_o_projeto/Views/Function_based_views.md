@@ -391,17 +391,6 @@ views/
 
 ---
 
-## 21. FBV vs CBV (comparação direta)
-
-| FBV                      | CBV             |
-| ------------------------ | --------------- |
-| Simples                  | Mais abstrato   |
-| Controle total           | Reuso maior     |
-| Fácil de debugar         | Menos código    |
-| Ideal para lógica custom | Ideal para CRUD |
-
----
-
 ## 22. Quando usar FBV em projetos reais
 
 ✔ APIs simples
