@@ -1,3 +1,8 @@
 1. [Django Forms](Django_Forms.md)
 2. [Model_Forms](Model_Forms.md)
 3. [Form Validation](Form_Validation.md)
+4. [Static Files](Static_Files.md)
+5. [Whitenoise](Whitenoise.md)
+6. [Pagination](Pagination.md)
+7. [Message Framework](Message_Framework.md)
+8. [Django Shell](Django_Shell.md)
