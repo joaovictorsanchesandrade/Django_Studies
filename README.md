@@ -42,6 +42,8 @@ Durante essa etapa, conceitos teóricos fundamentais são introduzidos junto com
 4. [Models, Databases & ORM](docs/Iniciando_o_projeto/Models_Databases_ORM/Models_Databases_ORM.md)
 5. [Validation](docs/Iniciando_o_projeto/Validation/Validation.md)
 6. [API Development](docs/Iniciando_o_projeto/API_Development/API_Development.md)
+7. [Logging, Debugging & Testing](docs/Iniciando_o_projeto/Logging_Debugging_Testing/Logging_Debugging_Testing.md)
+8. [Advanced Topics](docs/Iniciando_o_projeto/Advanced_Topics/Advanced_Topics.md)
 
 ---
 
