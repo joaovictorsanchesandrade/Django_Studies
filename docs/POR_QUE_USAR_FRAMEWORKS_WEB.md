@@ -1,0 +1,3 @@
+# Por que usar frameworks web?
+
+Usar frameworks web permite desenvolver aplicações de forma muito mais rápida, pois você não precisa se preocupar em criar do zero funcionalidades que já existem, como autenticação, roteamento, serialização, entre outras. Dessa forma, o foco principal pode ficar na regra de negócio da aplicação. Isso não significa que os outros aspectos devam ser ignorados, mas, na maioria dos casos, eles já estão bem resolvidos pelo próprio framework.
