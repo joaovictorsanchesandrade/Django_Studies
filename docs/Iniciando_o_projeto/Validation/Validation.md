@@ -45,10 +45,10 @@ Exemplos comuns:
 
 ## Quando NÃO Usar Middleware?
 
-❌ Regras específicas de uma view
-❌ Validação de formulários
-❌ Lógica de negócio
-❌ Processamentos pesados
+* ❌ Regras específicas de uma view
+* ❌ Validação de formulários
+* ❌ Lógica de negócio
+* ❌ Processamentos pesados
 
 Nestes casos, use views, services, decorators ou signals.
 
