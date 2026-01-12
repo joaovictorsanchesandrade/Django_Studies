@@ -31,6 +31,21 @@ Aqui estão os primeiros passos práticos utilizando Django, desde a preparaçã
 
 ---
 
+## 🐕 Começando o desenvolvimento
+
+Vamos começar o desenvolvimento desse projeto ao longo do desenvolvimento vamos envoulver conceitos teoricos que serão muitos importantes então vamos abordar varios conceitos e implemtnações nesse projeto.
+
+1. [Routing](docs/Iniciando_o_projeto/Routing/Routing.md)
+2. [Views](docs/Iniciando_o_projeto/Views/Views.md)
+3. [Templates](docs/Iniciando_o_projeto/Templates/Templates.md)
+4. [Models, Databases & ORM](docs/Iniciando_o_projeto/Models_Databases_ORM/Models_Databases_ORM.md)
+5. [Validation](docs/Iniciando_o_projeto/Validation/Validation.md)
+6. [API Development](docs/Iniciando_o_projeto/API_Development/API_Development.md)
+7. [Logging, Debugging & Testing](docs/Iniciando_o_projeto/Logging_Debugging_Testing/Logging_Debugging_Testing.md)
+8. [Advanced Topics](docs/Iniciando_o_projeto/Advanced_Topics/Advanced_Topics.md)
+
+---
+
 ## 🎯 Objetivo do repositório
 
 * Consolidar o aprendizado em Django
