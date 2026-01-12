@@ -1,3 +1,7 @@
+Named URLs no Django servem para dar um nome a uma rota, permitindo referenciá-la sem depender do caminho literal. Isso deixa o projeto mais organizado, seguro e fácil de manter.
+
+--- 
+
 ## 1️⃣ Definindo uma URL com nome
 
 No `urls.py`:

@@ -10,3 +10,4 @@ simples assim.
 3. [Grouping URLs](Grouping_URLs.md)
 4. [Reguex Paths](Reguex_Paths.md)
 5. [Named URLs](Named_URLs.md)
+6. [Reverse URL](Reverse_URL.md)
