@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <h1>Entrar</h1>
+
+    {% if form.errors %}
+        <p style="color: red;">
+            Usuário ou senha inválidos.
+        </p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div>
+            <label for="id_username">Usuário</label><br>
+            {{ form.username }}
+        </div>
+
+        <div>
+            <label for="id_password">Senha</label><br>
+            {{ form.password }}
+        </div>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <p>
+        Não tem conta?
+        <a href="{% url 'accounts:register' %}">Criar conta</a>
+    </p>
+
+</body>
+</html>

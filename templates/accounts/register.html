@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <h1>Criar conta</h1>
+
+    {% if form.errors %}
+        <ul style="color: red;">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div>
+            <label for="id_username">Usuário</label><br>
+            {{ form.username }}
+        </div>
+
+        <div>
+            <label for="id_password1">Senha</label><br>
+            {{ form.password1 }}
+        </div>
+
+        <div>
+            <label for="id_password2">Confirme a senha</label><br>
+            {{ form.password2 }}
+        </div>
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <p>
+        Já tem conta?
+        <a href="{% url 'accounts:login' %}">Entrar</a>
+    </p>
+
+</body>
+</html>
