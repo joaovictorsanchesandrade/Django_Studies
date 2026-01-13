@@ -1,14 +1,14 @@
 from django.shortcuts import redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class UserLoginView(LoginView):
     template_name = 'accounts/login.html'
     
-
 class UserLogoutView(LogoutView):
     next_page = 'accounts:login'
 
@@ -22,3 +22,6 @@ class UserCreationView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect(self.success_url)
+
+class UserProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'accounts/profile.html'
