@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.title }}</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 40px;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .product-info h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .stock {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .stock span {
+            font-weight: bold;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .actions button {
+            padding: 15px 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .add-cart {
+            background-color: #111;
+            color: #fff;
+        }
+
+        .back {
+            background-color: #ddd;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="{% url 'core:index' %}">← Voltar para a loja</a>
+</header>
+
+<div class="container">
+    <div class="product">
+
+        <div class="product-image">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.title }}">
+            {% else %}
+                <img src="https://via.placeholder.com/500x400" alt="Sem imagem">
+            {% endif %}
+        </div>
+
+        <div class="product-info">
+            <h1>{{ product.title }}</h1>
+
+            <div class="price">
+                R$ {{ product.price }}
+            </div>
+
+            <div class="description">
+                {% if product.description %}
+                    {{ product.description }}
+                {% else %}
+                    <em>Descrição não informada.</em>
+                {% endif %}
+            </div>
+
+            <div class="stock">
+                {% if product.stock > 0 %}
+                    <span>Em estoque:</span> {{ product.stock }} unidades
+                {% else %}
+                    <span>Produto indisponível</span>
+                {% endif %}
+            </div>
+
+            <div class="actions">
+                {% if product.stock > 0 %}
+                    <button class="add-cart">Adicionar ao carrinho</button>
+                {% endif %}
+                <button class="back" onclick="history.back()">Voltar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 - Minha Loja | Desenvolvido com Django
+</footer>
+
+</body>
+</html>
