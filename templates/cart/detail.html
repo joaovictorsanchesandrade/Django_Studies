@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 40px;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr 120px 120px 80px;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item img {
+            width: 100%;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .cart-item h2 {
+            font-size: 16px;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        .quantity {
+            text-align: center;
+        }
+
+        .remove button {
+            background: none;
+            border: none;
+            color: #c00;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .total {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actions a {
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .continue {
+            background-color: #ddd;
+            color: #111;
+        }
+
+        .checkout {
+            background-color: #111;
+            color: #fff;
+        }
+
+        .empty {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="/">← Continuar comprando</a>
+</header>
+
+<div class="container">
+    <h1>Meu Carrinho</h1>
+
+    {% if cart.items.all %}
+        {% for item in cart.items.all %}
+            <div class="cart-item">
+
+                <div>
+                    {% if item.product.image %}
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.title }}">
+                    {% endif %}
+                </div>
+
+                <div>
+                    <h2>{{ item.product.title }}</h2>
+                </div>
+
+                <div class="price">
+                    R$ {{ item.product.price }}
+                </div>
+
+                <div class="quantity">
+                    {{ item.quantity }}
+                </div>
+
+                <div class="remove">
+                    <form method="post" action="{% url 'cart:remove' item.product.slug %}">
+                        {% csrf_token %}
+                        <button type="submit">Remover</button>
+                    </form>
+                </div>
+
+            </div>
+        {% endfor %}
+
+        <div class="total">
+            Total: R$
+            {{ cart.get_total }}
+        </div>
+
+        <div class="actions">
+            <a href="/" class="continue">Continuar comprando</a>
+            <a href="#" class="checkout">Finalizar compra</a>
+        </div>
+
+    {% else %}
+        <p class="empty">Seu carrinho está vazio.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

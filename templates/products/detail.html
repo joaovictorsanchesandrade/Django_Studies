@@ -158,7 +158,10 @@
 
             <div class="actions">
                 {% if product.stock > 0 %}
-                    <button class="add-cart">Adicionar ao carrinho</button>
+                    <form action="{% url 'cart:add' product.slug %}" method="post">
+                        {% csrf_token %}
+                        <button class="add-cart" type="submit">Adicionar ao carrinho</button>
+                    </form>
                 {% endif %}
                 <button class="back" onclick="history.back()">Voltar</button>
             </div>

@@ -2,48 +2,140 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Registro</title>
+    <title>Criar conta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .register-box {
+            background-color: #fff;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .error-list {
+            background-color: #ffe5e5;
+            color: #c00;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .error-list ul {
+            padding-left: 20px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #111;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #111;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
 </head>
+
 <body>
 
+<div class="register-box">
     <h1>Criar conta</h1>
 
     {% if form.errors %}
-        <ul style="color: red;">
-            {% for field in form %}
-                {% for error in field.errors %}
-                    <li>{{ error }}</li>
+        <div class="error-list">
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-        </ul>
+            </ul>
+        </div>
     {% endif %}
 
     <form method="post">
         {% csrf_token %}
 
-        <div>
-            <label for="id_username">Usuário</label><br>
+        <div class="field">
+            <label for="id_username">Usuário</label>
             {{ form.username }}
         </div>
 
-        <div>
-            <label for="id_password1">Senha</label><br>
+        <div class="field">
+            <label for="id_password1">Senha</label>
             {{ form.password1 }}
         </div>
 
-        <div>
-            <label for="id_password2">Confirme a senha</label><br>
+        <div class="field">
+            <label for="id_password2">Confirmar senha</label>
             {{ form.password2 }}
         </div>
 
-        <button type="submit">Registrar</button>
+        <button type="submit">Criar conta</button>
     </form>
 
-    <p>
+    <div class="footer">
         Já tem conta?
         <a href="{% url 'accounts:login' %}">Entrar</a>
-    </p>
+    </div>
+</div>
 
 </body>
 </html>
