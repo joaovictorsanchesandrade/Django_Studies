@@ -136,7 +136,7 @@
     <header>
         <h1>Minha Loja</h1>
         <nav>
-            <a href="#">Produtos</a>
+            <a href="{% url 'products:list' %}">Produtos</a>
             <a href="{% url 'cart:detail' %}">Carrinho</a>
 
             {% if user.is_authenticated %}
@@ -150,38 +150,21 @@
     <section class="hero">
         <h2>Os melhores produtos em um só lugar</h2>
         <p>Qualidade, preço justo e entrega rápida</p>
-        <a href="#">Ver Produtos</a>
+        <a href="{% url 'products:list' %}">Ver Produtos</a>
     </section>
 
     <section class="products">
         <h3>Produtos em destaque</h3>
 
         <div class="product-grid">
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Produto">
-                <h4>Produto 1</h4>
-                <p>Descrição breve do produto.</p>
-                <div class="price">R$ 99,90</div>
-                <a href="#">Ver detalhes</a>
-            </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Produto">
-                <h4>Produto 2</h4>
-                <p>Descrição breve do produto.</p>
-                <div class="price">R$ 149,90</div>
-                <a href="#">Ver detalhes</a>
-            </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Produto">
-                <h4>Produto 3</h4>
-                <p>Descrição breve do produto.</p>
-                <div class="price">R$ 79,90</div>
-                <a href="#">Ver detalhes</a>
-            </div>
-
+            {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ product.image.url }}" alt="Produto">
+                    <h4>{{ product.title }}</h4>
+                    <div class="price">{{ product.price }}</div>
+                    <a href="{% url 'products:detail' product.slug %}">Ver detalhes</a>
+                </div>
+            {% endfor %}
         </div>
     </section>
 

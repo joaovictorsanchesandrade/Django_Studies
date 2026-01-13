@@ -22,6 +22,6 @@ def add_to_cart_view(request: HttpRequest, slug: str):
 def remove_to_cart_view(request: HttpRequest, slug: str):
     product = get_object_or_404(Product, slug=slug, available=True)
     cart, _ = Cart.objects.get_or_create(user=request.user)
-    cart_item = get_object_or_404(CartItem, product=product, cart=cart)
+    cart_item = get_object_or_404(CartItem, product=product, cart=cart)    
     cart_item.delete()
     return redirect('cart:detail')
